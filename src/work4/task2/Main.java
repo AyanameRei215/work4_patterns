@@ -14,7 +14,6 @@ public class Main {
         Handler confidentialityHandler = new ConfidentialityHandler();
         Handler timeHandler = new SubmissionTimeHandler();
 
-
         formatHandler.setNextHandler(authHandler);
         authHandler.setNextHandler(confidentialityHandler);
         confidentialityHandler.setNextHandler(timeHandler);
@@ -25,25 +24,26 @@ public class Main {
                 "PDF",
                 "Іван Петренко",
                 false,
-                LocalDateTime.of(2025, 1, 15, 14, 30)  
+                LocalDateTime.of(2025, 1, 15, 14, 30)  // Робочий час
         );
         formatHandler.handle(validDoc);
 
         System.out.println("\n\n🎯 ТЕСТ 2: ПОМИЛКА У ФОРМАТІ ДОКУМЕНТУ");
         Document invalidFormatDoc = new Document(
                 "Презентація",
-                "EXE", 
+                "EXE",
                 "Марія Коваленко",
                 false,
                 LocalDateTime.of(2025, 1, 15, 10, 0)
         );
         formatHandler.handle(invalidFormatDoc);
 
+
         System.out.println("\n\n🎯 ТЕСТ 3: ПОМИЛКА В АВТОРИЗАЦІЇ");
         Document blockedAuthorDoc = new Document(
                 "Важливий документ",
                 "DOCX",
-                "HACKER", 
+                "HACKER",
                 true,
                 LocalDateTime.of(2025, 1, 15, 11, 0)
         );
@@ -56,17 +56,16 @@ public class Main {
                 "TXT",
                 "Олексій Сидоренко",
                 false,
-                LocalDateTime.of(2025, 1, 15, 20, 0) 
+                LocalDateTime.of(2025, 1, 15, 20, 0)  // Поза робочим часом
         );
         formatHandler.handle(lateDoc);
-
 
         System.out.println("\n\n🎯 ТЕСТ 5: КОНФІДЕНЦІЙНИЙ ДОКУМЕНТ");
         Document confidentialDoc = new Document(
                 "Секретний договір",
                 "PDF",
                 "Андрій Мельник",
-                true, 
+                true,
                 LocalDateTime.of(2025, 1, 15, 15, 45)
         );
         formatHandler.handle(confidentialDoc);
