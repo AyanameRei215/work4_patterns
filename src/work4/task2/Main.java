@@ -7,14 +7,14 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("=== ДЕМОНСТРАЦІЯ ЛАНЦЮЖКА ОБРОБНИКІВ ДОКУМЕНТІВ ===\n");
 
-        // Створення ланцюжка обробників
+
         System.out.println("📋 СТВОРЕННЯ ЛАНЦЮЖКА ОБРОБНИКІВ:");
         Handler formatHandler = new FormatHandler();
         Handler authHandler = new AuthorizationHandler();
         Handler confidentialityHandler = new ConfidentialityHandler();
         Handler timeHandler = new SubmissionTimeHandler();
 
-        // Налаштування ланцюжка: Format → Authorization → Confidentiality → SubmissionTime
+
         formatHandler.setNextHandler(authHandler);
         authHandler.setNextHandler(confidentialityHandler);
         confidentialityHandler.setNextHandler(timeHandler);
