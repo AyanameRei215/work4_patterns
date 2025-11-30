@@ -3,10 +3,9 @@ package work4.task1;
 public class Main {
 
     public static void main(String[] args) {
-        // Створення колекції студентів
-        StudentCollection collection = new StudentCollection();
 
-        // Створення студентів з різними оцінками (з українськими іменами)
+        StudentCollection collection = new StudentCollection();
+        
         System.out.println("=== Створення студентів ===");
         collection.addStudent(new Student("Іван", 85.5));
         collection.addStudent(new Student("Петро", 92.0));
