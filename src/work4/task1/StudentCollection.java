@@ -67,10 +67,8 @@ public class StudentCollection {
         private int currentPosition = 0;
 
         public AlphabeticalIterator() {
-            // Створюємо копію списку для сортування
             sortedStudents = new ArrayList<>(students);
 
-            // Використовуємо Collator для правильного українського сортування
             Collator ukrainianCollator = Collator.getInstance(new Locale("uk", "UA"));
             Collections.sort(sortedStudents, new Comparator<Student>() {
                 @Override
@@ -110,7 +108,6 @@ public class StudentCollection {
         private int currentPosition = 0;
 
         public GradeAscendingIterator() {
-            // Створюємо копію списку для сортування
             sortedStudents = new ArrayList<>(students);
             Collections.sort(sortedStudents, Comparator.comparingDouble(Student::getGrade));
             System.out.println("Ітератор за зростанням оцінок: відсортовано " + sortedStudents.size() + " студентів");
@@ -144,7 +141,6 @@ public class StudentCollection {
         private int currentPosition = 0;
 
         public GradeDescendingIterator() {
-            // Створюємо копію списку для сортування
             sortedStudents = new ArrayList<>(students);
             Collections.sort(sortedStudents, Comparator.comparingDouble(Student::getGrade).reversed());
             System.out.println("Ітератор за спаданням оцінок: відсортовано " + sortedStudents.size() + " студентів");

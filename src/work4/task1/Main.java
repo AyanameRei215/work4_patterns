@@ -3,9 +3,8 @@ package work4.task1;
 public class Main {
 
     public static void main(String[] args) {
-
         StudentCollection collection = new StudentCollection();
-        
+
         System.out.println("=== Створення студентів ===");
         collection.addStudent(new Student("Іван", 85.5));
         collection.addStudent(new Student("Петро", 92.0));
